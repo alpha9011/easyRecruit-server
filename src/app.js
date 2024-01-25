@@ -1,19 +1,19 @@
 const express = require('express');
-
 const connectDB = require('./db/connectDB');
 const app = express()
 const port = process.env.PORT || 5000;
 require('dotenv').config()
 
+const postjobrouts = require('./routes/PostJob/index');
+const applyMiddleware = require('./middlewares/applymiddleware');
+
+applyMiddleware(app)
 
 
+app.use(postjobrouts)
 
 
-
-
-
-
-app.get("/health" , (req, res) => {
+app.get("/" , (req, res) => {
 
     res.send('easy recruit in running')
 })

@@ -13,7 +13,7 @@ applyMiddleware(app)
 app.use(postjobrouts)
 
 
-app.get("/" , (req, res) => {
+app.get("/health" , (req, res) => {
 
     res.send('easy recruit in running')
 })

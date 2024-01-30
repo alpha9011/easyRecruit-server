@@ -3,17 +3,18 @@ const connectDB = require('./db/connectDB');
 const app = express()
 const port = process.env.PORT || 5000;
 require('dotenv').config()
-
-const postjobrouts = require('./routes/PostJob/index');
 const applyMiddleware = require('./middlewares/applymiddleware');
+const postjobrouts = require('./routes/PostJob/index');
+const candidateForm = require('./routes/CandidateForm/index')
 
 applyMiddleware(app)
 
 
 app.use(postjobrouts)
+app.use(candidateForm)
 
 
-app.get("/", (req, res) => {
+app.get("/health", (req, res) => {
 
     res.send('easy recruit in running')
 })

@@ -5,12 +5,19 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 const postjobrouts = require('./routes/PostJob/index');
+const postuserrouts = require('./routes/Users/index');
 const applyMiddleware = require('./middlewares/applymiddleware');
 
 applyMiddleware(app)
 
 
+
 app.use(postjobrouts)
+app.use(postuserrouts)
+
+
+
+
 
 
 app.get("/" , (req, res) => {

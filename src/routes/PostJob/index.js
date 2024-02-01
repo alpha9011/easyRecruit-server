@@ -28,13 +28,13 @@ router.put('/postjob/:id', async (req, res) => {
   const updatedjobpost = req.body;
   const jobpost = {
     $set: {
-      aboutCompany: updatedjobpost.aboutCompany,
+      aboutCompany: updatedjobpost.about,
       benifits: updatedjobpost.benifits,
-      companyName: updatedjobpost.companyName,
-      education: updatedjobpost.education,
+      companyName: updatedjobpost.company,
+      education: updatedjobpost.eduEx,
       jobType: updatedjobpost.jobType,
       location: updatedjobpost.location,
-      positionSummary: updatedjobpost.positionSummary,
+      positionSummary: updatedjobpost.summury,
       qualifications: updatedjobpost.qualifications,
       responsibilities: updatedjobpost.responsibilities,
       salary: updatedjobpost.salary,

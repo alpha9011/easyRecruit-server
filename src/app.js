@@ -3,30 +3,21 @@ const connectDB = require('./db/connectDB');
 const app = express()
 const port = process.env.PORT || 5000;
 require('dotenv').config()
-<<<<<<< HEAD
 
-const postjobrouts = require('./routes/PostJob/index');
-const postuserrouts = require('./routes/Users/index');
-=======
->>>>>>> 403729d35339e83cb99756504bc6dd239f09d7f2
+
+// const postjobrouts = require('./routes/PostJob/index');
 const applyMiddleware = require('./middlewares/applymiddleware');
 const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')
-
+const users = require('./routes/Users/index')
 applyMiddleware(app)
 
 
 
 app.use(postjobrouts)
-<<<<<<< HEAD
-app.use(postuserrouts)
-
-
-
-
-=======
 app.use(candidateForm)
->>>>>>> 403729d35339e83cb99756504bc6dd239f09d7f2
+app.use(users)
+
 
 
 app.get("/health", (req, res) => {

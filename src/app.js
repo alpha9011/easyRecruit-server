@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 
-const postjobrouts = require('./routes/PostJob/index');
+// const postjobrouts = require('./routes/PostJob/index');
 const applyMiddleware = require('./middlewares/applymiddleware');
 const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')

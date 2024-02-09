@@ -8,7 +8,7 @@ const applyMiddleware = (app) => {
         origin: [process.env.LOCAL_CLIENT],
         credentials: true
     }))
-
+console.log(process.env.LOCAL_CLIENT);
     app.use(express.json())
     app.use(cookieParser())
 

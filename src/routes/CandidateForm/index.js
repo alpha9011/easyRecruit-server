@@ -13,7 +13,6 @@ router.get('/applicantCV', async (req, res) => {
 
 router.post('/applicantCV', async (req, res) => {
     const applicants = req.body;
-    console.log(applicants);
     const result = await applicationCollection.insertOne(applicants)
     res.send(result)
 })

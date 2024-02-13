@@ -10,12 +10,15 @@ const applyMiddleware = require('./middlewares/applymiddleware');
 const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')
 const users = require('./routes/Users/index')
+const payments = require('./routes/Payments/index')
 applyMiddleware(app)
 
 
 
 app.use(postjobrouts)
 app.use(candidateForm)
+app.use(users)
+app.use(payments)
 
 
 app.get("/health", (req, res) => {

@@ -41,7 +41,8 @@ router.put('/postjob/:id', async (req, res) => {
       jobType: updatedjobpost.jobType,
       experience:updatedjobpost.experience,
       salary: updatedjobpost.salary,
-      deadline:updatedjobpost.deadline
+      deadline:updatedjobpost.date
+      
 
 
     }

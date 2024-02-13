@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 const postjobrouts = require('./routes/PostJob/index');
+
 const applyMiddleware = require('./middlewares/applymiddleware');
 
 applyMiddleware(app)
@@ -35,4 +36,5 @@ const main =async()=> {
         console.log('easy recruit is running on' , port);
     })
 }
+
 main()

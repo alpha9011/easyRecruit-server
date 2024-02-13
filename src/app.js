@@ -5,14 +5,12 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 
-// const postjobrouts = require('./routes/PostJob/index');
 const applyMiddleware = require('./middlewares/applymiddleware');
 const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')
 const users = require('./routes/Users/index')
 const payments = require('./routes/Payments/index')
 applyMiddleware(app)
-
 
 
 app.use(postjobrouts)

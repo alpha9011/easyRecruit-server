@@ -28,18 +28,23 @@ router.put('/postjob/:id', async (req, res) => {
   const updatedjobpost = req.body;
   const jobpost = {
     $set: {
-      aboutCompany: updatedjobpost.about,
-      benifits: updatedjobpost.benifits,
-      companyName: updatedjobpost.company,
-      education: updatedjobpost.eduEx,
-      jobType: updatedjobpost.jobType,
-      location: updatedjobpost.location,
-      positionSummary: updatedjobpost.summury,
-      qualifications: updatedjobpost.qualifications,
-      responsibilities: updatedjobpost.responsibilities,
-      salary: updatedjobpost.salary,
-      tags: updatedjobpost.tags,
       title: updatedjobpost.title,
+      location: updatedjobpost.location,
+      companyName: updatedjobpost.companyName,
+      logo:updatedjobpost.logo,
+      aboutCompany: updatedjobpost.aboutCompany,
+      benifits: updatedjobpost.benifits,
+      positionSummary: updatedjobpost.positionSummary,
+      responsibilities: updatedjobpost.responsibilities,
+      qualifications: updatedjobpost.qualifications,
+      education: updatedjobpost.education,
+      jobType: updatedjobpost.jobType,
+      experience:updatedjobpost.experience,
+      salary: updatedjobpost.salary,
+      deadline:updatedjobpost.date
+      
+
+
     }
   }
   const result = await postjobCollection.updateOne(filter, jobpost, options)

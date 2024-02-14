@@ -13,7 +13,8 @@ const users = require('./routes/Users/index')
 applyMiddleware(app)
 
 
-app.use(postuserrouts)
+
+app.use(postjobrouts)
 app.use(candidateForm)
 app.use(users)
 // app.use(payment)

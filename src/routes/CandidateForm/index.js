@@ -11,6 +11,8 @@ router.get('/applicantCV', async (req, res) => {
     res.send(result)
 })
 
+
+
 router.get('/applicantCV/:id', async (req, res) => {
     const id = req.params.id
     const query = { _id: new ObjectId(id) }

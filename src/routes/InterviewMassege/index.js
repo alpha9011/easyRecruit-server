@@ -1,13 +1,42 @@
 const express = require('express');
 const router = express.Router()
 const mongoose = require('mongoose');
-// const ObjectId = mongoose.Types.ObjectId;
+const nodemailer = require('nodemailer');
 const db = mongoose.connection;
 const interviewMessageCollection = db.collection('interviewMessage');
 
+// nodemailer transporter
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: true,
+    auth: {
+        user: process.env.SMTP_MAIL,
+        pass: process.env.SMTP_PASSWORD,
+    },
+});
+
+
 router.post('/interviewMessage', async (req, res) => {
     const message = req.body;
-    console.log(message);
+    // console.log(message);
+    var mailOptions = {
+        from: process.env.SMTP_MAIL,
+        to: message.email,
+        subject: message.subject,
+        text: message.message
+    }
+    // console.log(mailOptions);
+
+    // sendmail function...
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log("Email sent successfully");
+        }
+    })
     const result = await interviewMessageCollection.insertOne(message);
     res.send(result)
 })

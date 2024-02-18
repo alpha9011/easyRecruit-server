@@ -11,6 +11,7 @@ const candidateForm = require('./routes/CandidateForm/index')
 const users = require('./routes/Users/index');
 const interviewMessage = require('./routes/InterviewMassege/index');
 const paymentGetway = require('./routes/PaymentGetWay/index');
+const packs = require('./routes/Packs/index');
 applyMiddleware(app)
 
 
@@ -19,6 +20,7 @@ app.use(candidateForm)
 app.use(users)
 app.use(interviewMessage)
 app.use(paymentGetway)
+app.use(packs)
 
 
 

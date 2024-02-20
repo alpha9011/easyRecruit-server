@@ -10,6 +10,11 @@ const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')
 const users = require('./routes/Users/index')
 // const payment = require('./routes/payment/index')
+const users = require('./routes/Users/index');
+const interviewMessage = require('./routes/InterviewMassege/index');
+const paymentGetway = require('./routes/PaymentGetWay/index');
+const packs = require('./routes/Packs/index');
+const feedback = require('./routes/FeedBack/index');
 applyMiddleware(app)
 
 
@@ -17,6 +22,10 @@ app.use(postjobrouts)
 app.use(candidateForm)
 app.use(users)
 // app.use(payment)
+app.use(interviewMessage)
+app.use(paymentGetway)
+app.use(packs)
+app.use(feedback)
 
 
 

@@ -43,8 +43,6 @@ router.put('/postjob/:id', async (req, res) => {
       salary: updatedjobpost.salary,
       deadline:updatedjobpost.date
       
-
-
     }
   }
   const result = await postjobCollection.updateOne(filter, jobpost, options)

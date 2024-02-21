@@ -64,9 +64,6 @@ router.post('/postjob', async (req, res) => {
   res.send(result)
 })
 
-<<<<<<< HEAD
 
 module.exports = router
-=======
-module.exports = router
->>>>>>> 9ffe04301a625ee44babc38dd41c67e5caaa1659
+

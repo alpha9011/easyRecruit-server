@@ -7,12 +7,19 @@ const applicationCollection = db.collection('applicantsdata');
 
 // Get all the applicants
 router.get('/applicantCV', async (req, res) => {
-    const cursor = applicationCollection.find()
+   
+    const page = parseInt(req.query.page)
+    const size = parseInt(req.query.size)
+   
+    const cursor = applicationCollection.find().skip(page * size).limit(size)
     const result = await cursor.toArray()
     res.send(result)
 })
 
-
+router.get( '/applicantCount', async (req, res) => {
+    const count = await applicationCollection.estimatedDocumentCount()
+    res.send({count})
+})
 // Get all the applicant who are already selected
 router.get('/applicantCV/selected', async (req, res) => {
     const cursor = applicationCollection.find();
@@ -20,6 +27,7 @@ router.get('/applicantCV/selected', async (req, res) => {
     const selectedData = result.filter(item => item.isSelected === 'selected');
     res.send(selectedData)
 })
+
 
 
 // Get a specific candidate based on id

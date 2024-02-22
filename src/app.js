@@ -12,6 +12,8 @@ const users = require('./routes/Users/index');
 const interviewMessage = require('./routes/InterviewMassege/index');
 const paymentGetway = require('./routes/PaymentGetWay/index');
 const packs = require('./routes/Packs/index');
+const blogs = require('./routes/blog/index')
+const resume = require('./routes/resume/index')
 const feedback = require('./routes/FeedBack/index');
 applyMiddleware(app)
 
@@ -19,10 +21,12 @@ applyMiddleware(app)
 app.use(postjobrouts)
 app.use(candidateForm)
 app.use(users)
+app.use(blogs)
 app.use(interviewMessage)
 app.use(paymentGetway)
 app.use(packs)
 app.use(feedback)
+app.use(resume)
 
 
 

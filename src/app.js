@@ -48,4 +48,5 @@ const main = async () => {
         console.log('easy recruit is running on', port);
     })
 }
+
 main()

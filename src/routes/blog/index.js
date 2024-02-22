@@ -59,18 +59,5 @@ router.delete('/blog/:id', async (req, res) => {
     const result = await blogCollection.deleteOne(query);
     res.send(result);
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 module.exports = router

@@ -7,9 +7,10 @@ const postjobCollection = db.collection('postjob');
 
 // get all job post
 router.get('/postjob', async (req, res) => {
+  // console.log(req.query);
   const page = parseInt(req.query.page)
   const size = parseInt(req.query.size)
-  console.log('pagination', page, size);
+  
   const cursor = postjobCollection.find().skip(page * size).limit(size)
   const result = await cursor.toArray()
   res.send(result)

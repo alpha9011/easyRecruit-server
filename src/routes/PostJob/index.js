@@ -7,9 +7,17 @@ const postjobCollection = db.collection('postjob');
 
 // get all job post
 router.get('/postjob', async (req, res) => {
-  const cursor = postjobCollection.find()
+  const page = parseInt(req.query.page)
+  const size = parseInt(req.query.size)
+  console.log('pagination', page, size);
+  const cursor = postjobCollection.find().skip(page * size).limit(size)
   const result = await cursor.toArray()
   res.send(result)
+})
+
+router.get('/postJobCount' , async(req, res)=> {
+  const count =await postjobCollection.estimatedDocumentCount();
+  res.send({count})
 })
 
 // get specific job by id
@@ -43,8 +51,6 @@ router.put('/postjob/:id', async (req, res) => {
       salary: updatedjobpost.salary,
       deadline:updatedjobpost.date
       
-
-
     }
   }
   const result = await postjobCollection.updateOne(filter, jobpost, options)

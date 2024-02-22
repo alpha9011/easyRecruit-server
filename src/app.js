@@ -4,7 +4,6 @@ const app = express()
 const port = process.env.PORT || 5000;
 require('dotenv').config()
 
-
 const applyMiddleware = require('./middlewares/applymiddleware');
 const postjobrouts = require('./routes/PostJob/index');
 const candidateForm = require('./routes/CandidateForm/index')

@@ -10,7 +10,7 @@ router.get('/applicantCV', async (req, res) => {
    
     const page = parseInt(req.query.page)
     const size = parseInt(req.query.size)
-   
+   console.log(page, size);
     const cursor = applicationCollection.find().skip(page * size).limit(size)
     const result = await cursor.toArray()
     res.send(result)

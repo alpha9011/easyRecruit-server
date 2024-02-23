@@ -6,11 +6,16 @@ const db = mongoose.connection;
 const usersCollection = db.collection('users');
 
 router.get('/users' , async(req, res)=> {
-    const cursor = usersCollection.find()
+  const page = parseInt(req.query.page)
+  const size = parseInt(req.query.size)
+    const cursor = usersCollection.find().skip(page * size).limit(size)
     const result = await cursor.toArray()
     res.send(result)
 })
-
+router.get('/userCount' , async(req,res)=>{
+  const count = await usersCollection.estimatedDocumentCount()
+  res.send({count})
+})
 router.get('/users/admin/:email', async(req, res)=> {
     const email = req.params.email
     const query = {email: email}

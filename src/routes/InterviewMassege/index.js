@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
+// post inerview message on database
 router.post('/interviewMessage', async (req, res) => {
     const message = req.body;
     // console.log(message);
@@ -24,7 +25,7 @@ router.post('/interviewMessage', async (req, res) => {
         from: process.env.SMTP_MAIL,
         to: message.email,
         subject: message.subject,
-        text: message.message
+        text: `${message.message}\nInterview starting time:${message.strating}\nInterview Ending Time:${message.ending}\nInterview Link:${message.link}`,
     }
     // console.log(mailOptions);
 
@@ -40,5 +41,14 @@ router.post('/interviewMessage', async (req, res) => {
     const result = await interviewMessageCollection.insertOne(message);
     res.send(result)
 })
+
+
+// get inerview message from database
+router.get('/interviewMessage', async (req, res) => {
+    const cursor = interviewMessageCollection.find()
+    const result = await cursor.toArray()
+    res.send(result)
+})
+
 
 module.exports = router

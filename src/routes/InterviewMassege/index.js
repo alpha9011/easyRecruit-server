@@ -15,7 +15,10 @@ const transporter = nodemailer.createTransport({
         pass: process.env.SMTP_PASSWORD,
     },
 });
-
+router.get('/interviewMessage', async(req, res)=> {
+    const result = await interviewMessageCollection.find().toArray();
+    res.send(result)
+})
 
 router.post('/interviewMessage', async (req, res) => {
     const message = req.body;

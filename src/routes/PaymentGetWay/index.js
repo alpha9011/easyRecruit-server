@@ -25,7 +25,7 @@ router.post('/order', async (req, res) => {
     const query = { _id: new ObjectId(id) }
     const pack = await packsCollection.findOne(query)
     // console.log(pack);
-
+    // https://easy-recruit-server.vercel.app
     const data = {
         total_amount: pack?.price,
         currency: 'USD',
@@ -100,7 +100,7 @@ router.post('/payment/success/:tranId', async (req, res) => {
     }
 })
 
-
+// https://brilliant-crisp-888e1f.netlify.app
 // delete data when clicked on the failed button
 router.post('/payment/fail/:tranId', async (req, res) => {
     console.log(req.params.tranId);

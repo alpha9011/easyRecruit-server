@@ -56,7 +56,7 @@ router.post('/order', async (req, res) => {
         ship_postcode: 1000,
         ship_country: 'Bangladesh',
     };
-    console.log(data);
+    // console.log(data);
 
 
     const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);

@@ -5,6 +5,12 @@ const ObjectId = mongoose.Types.ObjectId;
 const db = mongoose.connection;
 const postjobCollection = db.collection('postjob');
 
+
+
+
+
+
+
 // get all job post
 router.get('/postjob', async (req, res) => {
   // console.log(req.query);
